@@ -2,15 +2,15 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>calculator1</title>
+    <title>Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <main>
-        <div class="container">
-            <div class="calc">
-                <div class="calc-display">
+            <div class="calc" id="calculator" >
+                <div id="holder" onmousedown="move()" onmouseup="stop()"></div>
+                <div class="calc-display">  
                     <input disabled type="text" id="display" value="0" name="" placeholder="00000000000" maxlength="12" class="calc-display-input">
                 </div>
                 <div class="calc-buttons">
@@ -26,7 +26,7 @@
                                 <button type="button" class="operator btn btn-hover-orange">/</button>
                             </td>
                             <td>
-                                <button type="button" class=" operator btn btn-hover-orange">*</button>
+                                <button type="button" class=" operator btn btn-hover-orange">X</button>
                             </td>
                         </tr>
                         <tr class="calc-buttons-row">
@@ -40,7 +40,7 @@
                                 <button type="button" class="number btn-hover-green btn">9</button>
                             </td>
                             <td>
-                                <button type="button" class="operator btn btn-hover-orange">-</button>
+                                <button type="button" class="operator btn btn-hover-orange">–</button>
                             </td>
                         </tr>
                         <tr class="calc-buttons-row">
@@ -81,7 +81,6 @@
                         </tr>
                     </table>
                 </div>
-            </div>
         </div>
     </main>
     <script src="script.js">         
