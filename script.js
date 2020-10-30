@@ -1,4 +1,4 @@
-var numbers = document.querySelectorAll(".number"),
+let numbers = document.querySelectorAll(".number"),
     operations = document.querySelectorAll(".operator"),
     clearBtns = document.querySelectorAll(".clear-btn"),
     decimalBtn = document.getElementById("decimal"),
@@ -10,32 +10,22 @@ var numbers = document.querySelectorAll(".number"),
     MemoryFirstNumber = undefined,
     MemorySecondNumber = 0;
 
-for(var i = 0; i < numbers.length; i++) {
-    var number = numbers[i];
-    number.addEventListener("click", function(e){
-        numberPress(e.target.textContent);
-    });
-};
+numbers.forEach((el) => {el.addEventListener("click", (e) => {
+    numberPress(e.target.textContent);
+});})
 
-for(var i = 0; i < operations.length; i++) {
-    var operationBtn = operations[i];
-        operationBtn.addEventListener("click", function(e){
-            operationPress(e.target.textContent);
-    });
-};
+operations.forEach((el) => {el.addEventListener("click", (e) => {
+    operationPress(e.target.textContent);
+});})
 
-for(var i = 0; i < clearBtns.length; i++) {
-    var clearBtn = clearBtns[i];
-        clearBtn.addEventListener("click", function(e){
-        clear(e.target.textContent);
-    });
-};
+clearBtns.forEach((el) => {el.addEventListener("click", (e) => {
+    clear(e.target.textContent);
+});})
 
 decimalBtn.addEventListener("click", decimal);
 function decimal() {
-    var localDecimalMemory = display.value;
-    
-    if(MemoryNewNumber) {
+    let localDecimalMemory = display.value;
+        if(MemoryNewNumber) {
         localDecimalMemory = "0.";
         MemoryNewNumber = false;
     } else {
@@ -80,7 +70,7 @@ function operationPress(op) {
     changeOperation = true;
 };
 
-function calc() {
+let calc = () => {
     if (MemoryPendingOperation === "+") {
         display.value = MemoryFirstNumber + MemorySecondNumber;
      } else if (MemoryPendingOperation === "–") {
@@ -110,16 +100,17 @@ function clear(id) {
         }
 };
 
+// Move calc
 let div = document.getElementById('calculator');
-let listener = function(e) {
+let holder = document.getElementById('holder');
+holder.addEventListener('mousedown', move = () => {
+  document.addEventListener('mousemove', listener);
+});
+holder.addEventListener('mouseup', function stop() {
+  document.removeEventListener('mousemove', listener);
+});
+
+let listener = (e) => {
   div.style.left = e.pageX - 27 + "px";
   div.style.top = e.pageY - 13 + "px";
 };
-
-function move() {
-  document.addEventListener('mousemove', listener);
-}
-
-function stop() {
-  document.removeEventListener('mousemove', listener);
-}
