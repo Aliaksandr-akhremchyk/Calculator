@@ -8,7 +8,7 @@ var numbers = document.querySelectorAll(".number"),
     MemoryPendingOperation = "",
     changeOperation = false,
     MemoryFirstNumber = undefined,
-    MemorySecondNumber = undefined;
+    MemorySecondNumber = 0;
 
 for(var i = 0; i < numbers.length; i++) {
     var number = numbers[i];
@@ -83,18 +83,18 @@ function operationPress(op) {
 function calc() {
     if (MemoryPendingOperation === "+") {
         display.value = MemoryFirstNumber + MemorySecondNumber;
-     } else if (MemoryPendingOperation === "-") {
+     } else if (MemoryPendingOperation === "–") {
          display.value = MemoryFirstNumber - MemorySecondNumber; 
-     } else if (MemoryPendingOperation === "*") {
+     } else if (MemoryPendingOperation === "X") {
          display.value = MemoryFirstNumber * MemorySecondNumber;
      } else if (MemoryPendingOperation === "/") {
          display.value = MemoryFirstNumber / MemorySecondNumber;  
      } 
      let a = +display.value;
-     display.value = +a.toFixed(15);
+     display.value = +a.toFixed(10);
      if (display.value > 9999999999999999 || display.value < -9999999999999999) {
         display.value = 'Перебор';
-     }
+     } MemoryNewNumber = true;
 };
 
 function clear(id) {
@@ -106,7 +106,20 @@ function clear(id) {
             MemoryNewNumber = true;
             MemoryPendingOperation = "";
             MemoryFirstNumber = undefined,
-            MemorySecondNumber = undefined;
+            MemorySecondNumber = 0;
         }
 };
 
+let div = document.getElementById('calculator');
+let listener = function(e) {
+  div.style.left = e.pageX - 27 + "px";
+  div.style.top = e.pageY - 13 + "px";
+};
+
+function move() {
+  document.addEventListener('mousemove', listener);
+}
+
+function stop() {
+  document.removeEventListener('mousemove', listener);
+}
