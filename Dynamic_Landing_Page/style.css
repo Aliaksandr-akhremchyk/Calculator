@@ -10,7 +10,6 @@ html {
 
 body {
   font-family: 'Quicksand', sans-serif;
-  /* font-size: 30px; */
   letter-spacing: 0.02rem;
   display: flex;
   flex-direction: column;
@@ -67,18 +66,48 @@ h2 {
   margin-bottom: 2rem;
 }
 button {
+  position: absolute;
   font-family: 'Quicksand', sans-serif;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
   border-radius: 3px;
   padding: 3px;
+  border: 1px solid black;
+  opacity: 0.8;
+  transition: 0.2s;
 }
+button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+  opacity: 1;
+}
+
+.buttonImg{
+  top: 20px;
+  left: 20px;
+}
+.buttonQ{
+ top: 20px;
+ left: 200px
+}
+.weather {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 20px;
+  right: 50px;
+}
+
 @media (max-width: 700px) {
   html{
     font-size: 13px;
   }
   .time {
-    
     width: 360px;
   }
+  .buttonQ{
+    left: 170px
+   }
 }
+
+/* button */

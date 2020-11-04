@@ -4,11 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="owfont-regular.css">
   <link rel="stylesheet" href="style.css" />
   <title>Dynamic Landing Page</title>
 </head>
 <body>
-  <button class="buttonImg">Сменить картинку</button>
+  
   <div class="div" style="opacity: 0"></div>
   <time class="time"></time>
   <div class="day"></div>
@@ -19,8 +20,14 @@
   <h2>What Is Your Focus For Today?</h2>
   <h2 class="focus" contenteditable="true"></h2>
   <div class="quote"></div>
-  <button class="buttonQ">Сминить шутку</button>
-
+  <button class="buttonQ">Сменить шутку</button>
+  <button class="buttonImg">Сменить картинку</button>
+  <div class="weather">
+        <i class="weather-icon owf"></i>
+        <div class="temperature"></div>
+        <div class="weather-description"></div>
+        <div class="city" contenteditable="true">Минск</div>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

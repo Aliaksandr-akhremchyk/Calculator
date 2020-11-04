@@ -106,22 +106,22 @@ function setBgGreet() {
   if (hour < 6) {
     // Night
     body.style.backgroundImage =
-    `url(/assets/images/night/${addZero(numberPic)}.jpg)`;
+    `url(./assets/images/night/${addZero(numberPic)}.jpg)`;
     greeting.textContent = 'Good Night,';
   } else if (hour < 12) {
     // Morning
     body.style.backgroundImage =
-      `url(/assets/images/morning/${addZero(numberPic)}.jpg)`; https://github.com/irinainina/ready-projects//blob/fd70d61fa141390d8816066d3fb5fff138e119d7/momentum/assets/images/morning/01.jpg
+      `url(./assets/images/morning/${addZero(numberPic)}.jpg)`; https://github.com/irinainina/ready-projects//blob/fd70d61fa141390d8816066d3fb5fff138e119d7/momentum/assets/images/morning/01.jpg
     greeting.textContent = 'Good Morning,';
   } else if (hour < 18) {
     // Afternoon
     body.style.backgroundImage =
-      `url(/assets/images/day/${addZero(numberPic)}.jpg)`;
+      `url(./assets/images/day/${addZero(numberPic)}.jpg)`;
     greeting.textContent = 'Good Afternoon,';
   } else {
     // Evening
     body.style.backgroundImage =
-      `url(/assets/images/evening/${addZero(numberPic)}.jpg)`;
+      `url(./assets/images/evening/${addZero(numberPic)}.jpg)`;
     greeting.textContent = 'Good Evening,';
     // document.body.style.color = 'white';
 
@@ -135,21 +135,22 @@ function setBgDiv() {
   if (hour < 6) {
     // Night
     div.style.backgroundImage =
-    `url(/assets/images/night/${addZero(numberPic)}.jpg)`;
+    `url(./assets/images/night/${addZero(numberPic)}.jpg)`;
   } else if (hour < 12) {
     // Morning
     div.style.backgroundImage =
-      `url(/assets/images/morning/${addZero(numberPic)}.jpg)`;
+      `url(./assets/images/morning/${addZero(numberPic)}.jpg)`;
   } else if (hour < 18) {
     // Afternoon
     div.style.backgroundImage =
-      `url(/assets/images/day/${addZero(numberPic)}.jpg)`;
+      `url(./assets/images/day/${addZero(numberPic)}.jpg)`;
   } else {
     // Evening
     div.style.backgroundImage =
-      `url(/assets/images/evening/${addZero(numberPic)}.jpg)`;
+      `url(./assets/images/evening/${addZero(numberPic)}.jpg)`;
   }
 }
+
 
 
 // Get Name
@@ -211,10 +212,59 @@ focus.addEventListener('keypress', setFocus);
 focus.addEventListener('blur', setFocus);
 focus.addEventListener('click', clear);
 
+
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const city = document.querySelector('.city');
+
+//Get City
+
+function getCity() {
+  if (localStorage.getItem('city') === null) {
+    city.textContent = 'Минск';
+  } else {
+    city.textContent = localStorage.getItem('city');
+  }
+}
+// Set City
+function setCity(e) {
+  if (e.type === 'keypress') {
+    // Make sure enter is pressed
+    if (e.which == 13 || e.keyCode == 13) {
+      if (+city.textContent === 0) getCity();
+      localStorage.setItem('city', e.target.innerText);
+      getWeather()
+      city.blur();
+    }
+  } else {
+    if (+city.textContent === 0) getCity();
+    localStorage.setItem('city', e.target.innerText);
+  }
+}
+
+async function getWeather() {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=ru&appid=48d622ffc32bb60f91911f6bb75e493b&units=metric`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  weatherIcon.className = 'weather-icon owf';
+  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+  temperature.textContent = `${data.main.temp}°C`;
+  weatherDescription.textContent = data.weather[0].description;
+}
+
+document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener('keypress', setCity);
+city.addEventListener('blur', setCity);
+city.addEventListener('click', clear);
+
+
 // Run
 showTime();
 setBgGreet();
 getName();
+getCity();
 getFocus();
 ShowDay();
 changeQuote();
