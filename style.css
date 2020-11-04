@@ -32,7 +32,7 @@ body {
 .calc {
     position: absolute;
     left: calc(50% - 190px);
-    top: 50px;
+    top: 100px;
     background-color: #a8d6fa;
     width: 385px;
     padding: 3px;
