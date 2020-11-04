@@ -1,8 +1,4 @@
-let numbers = document.querySelectorAll(".number"),
-    operations = document.querySelectorAll(".operator"),
-    clearBtns = document.querySelectorAll(".clear-btn"),
-    decimalBtn = document.getElementById("decimal"),
-    result = document.getElementById("result"),
+let buttons = document.getElementById("calc-buttons"),
     display = document.getElementById("display"),
     MemoryNewNumber = false,
     MemoryPendingOperation = "",
@@ -10,19 +6,21 @@ let numbers = document.querySelectorAll(".number"),
     MemoryFirstNumber = undefined,
     MemorySecondNumber = 0;
 
-numbers.forEach((el) => {el.addEventListener("click", (e) => {
-    numberPress(e.target.textContent);
-});})
+buttons.addEventListener("click", (e) => {
+    let t = e.target.textContent;
+    if (t >= '0' && t <= '9') {
+        numberPress(t);
+    } else if (t === 'X' || t === '–' || t === '+' || t === '/' ) {
+        operationPress(t);
+    } else if (t === 'ce' || t === 'c') {
+        clear(t);
+    } else if (t === '.') {
+        decimal();
+    } else if (t === '=') {
+        result();
+    }
+});
 
-operations.forEach((el) => {el.addEventListener("click", (e) => {
-    operationPress(e.target.textContent);
-});})
-
-clearBtns.forEach((el) => {el.addEventListener("click", (e) => {
-    clear(e.target.textContent);
-});})
-
-decimalBtn.addEventListener("click", decimal);
 function decimal() {
     let localDecimalMemory = display.value;
         if(MemoryNewNumber) {
@@ -38,12 +36,12 @@ function decimal() {
     MemorySecondNumber = +display.value;
 };
 
-result.addEventListener("click", function(){
+function result() {
      calc();
      MemoryFirstNumber = +display.value;
      changeOperation = true;
      MemoryNewNumber = true;
-});
+};
 
 function numberPress(number) {
     if(MemoryNewNumber) {
