@@ -1,155 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+html {
+  font-size: 17px;
+}
+
 body {
-    widows: 100%;
-    height: 100%;
-    background-color: #eee;
-    font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  /* font-size: 30px; */
+  letter-spacing: 0.02rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-size: cover;
+  color: #000000;
+  text-shadow: 0px 0px 1rem white, 
+  0.1rem 0px 0.2rem white,
+  -0.1rem 0px 0.2rem white, 
+  0rem -0.1rem 0.2rem white,
+  0px 0.1rem 0.2rem white;
+  transition: 1s;
+}
+.div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transition: 1s;
+  z-index: -1;
+}
+.div:hover {
+  opacity: 0;
+  transition: 1s;
+}
+.time {
+  font-size: 8rem;
+  font-kerning: none;
+  width: 480px;
+  text-align: start;
+}
+.day {
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
-#holder {
-    width: 25px;
-    height: 5px;
-    background-color: black;
-    border-radius: 3px;
-    margin: 8px 0px 0px 18px;
-    cursor: pointer;
-}
-	
-#holder:hover:after {
-    content: "Можно переместить";
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: rgba(5,13,156,.55);
-    color: #fff;
-    text-align: center;
-    font-family: cursive;
-    font-size: 15px;
-    padding: 3px 0;
-    width: 100%;
-    border-radius: 6px 6px 0 0;
+.h1 {
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
-.calc {
-    position: absolute;
-    left: calc(50% - 190px);
-    top: 100px;
-    background-color: #a8d6fa;
-    width: 385px;
-    padding: 3px;
-    border-radius: 6px;
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
 }
-.calc-display {
-    display: flex;
-    padding: 0 10px;
+.quote{
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
 }
-
-.calc-display-input {
-    width: 342px;
-    height: 60px;
-    margin: 10px auto 15px auto;
-    border-radius: 6px;
-    background-color: #1d1d1d27;
-    color: rgba(0, 0, 0, 0.856);
-    text-align: right;
-    font-size: 35px;
-    padding-right: 5px;
+button {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 3px;
 }
-.calc-table {
-    margin: auto;
-    margin-bottom: 12px;
-}
-
-.btn {
-    width: 85px;
-    height: 60px;
-    background-color: #f4f4f4;
-    font-size: 27px;
-    color: #666666;
-    text-transform: uppercase;
-    border-radius: 3px;
-    padding: 0;
-    cursor: pointer;
-    transition: 0.1s all;
-    border: 1px rgba(128, 128, 128, 0.699) solid;
-
-}
-
-.btn-hover-red:hover {
-    background-color: rgb(185, 51, 51);
-    color: black;
-    font-weight: bold;
-}
-
-.btn-hover-orange:hover {
-    background-color: gray;
-    color: black;
-    font-weight: bold;
-}
-
-.btn-hover-green:hover {
-    background-color:  rgba(128, 128, 128, 0.507);
-    color:  black;
-    font-weight: bold;
-}
-
-.btn:active {
-    transform: translateY(1px);
-    box-shadow: 0px 0px 20px 3px rgb(255, 255, 255);
-    border-radius: 10px;
-}
-
-.btn-long {
-    width: 174px;
-}
-
-.btn-equal {
-    height: 124px;
-}
-
-
-@media screen and (max-width: 768px) {
-    .calc {
-        width: 300px;
-        /* margin: 0 auto; */
-        left: calc(50% - 150px);
-    }
-    .calc-display-input {
-        width: 261px;
-    }
+@media (max-width: 700px) {
+  html{
+    font-size: 13px;
+  }
+  .time {
     
-    input[placeholder]          {font-size: 28px;}
-    input::-moz-placeholder     {font-size: 28px;} 
-    input:-moz-placeholder      {font-size: 28px;} 
-    input:-ms-input-placeholder {font-size: 28px;}  
-    
-    .btn {
-        width : 64px;
-    }
-    .btn-long {
-        width: 132px;
-    }
-    #holder{
-        margin-left: 15px;
-    }
-}
-@media screen and (max-width: 400px) {
-    .calc {
-        width: 280px;
-        left: calc(50% - 140px);
-    }
-    .calc-table {
-        margin-bottom: 7px;
-    }
-    .calc-display-input {
-        width: 251px;
-    }
-    .btn {
-        width : 60px;
-    }
-    .btn-long {
-        width: 124px;
-    }
-    #holder{
-        margin-left: 10px;
-    }
+    width: 360px;
+  }
 }
