@@ -14,7 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   text-align: center;
   height: 100vh;
   background-size: cover;
@@ -39,6 +39,7 @@ body {
   transition: 1s;
 }
 .time {
+  margin-top: 22vh;
   font-size: 8rem;
   font-kerning: none;
   width: 480px;
@@ -108,6 +109,35 @@ button:hover {
   .buttonQ{
     left: 170px
    }
+}
+@media (max-width: 560px) {
+  .buttonQ{
+    top: 55px;
+    left: 20px
+   }
+}
+@media (max-width: 470px) {
+  html{
+    font-size: 11px;
+  }
+  .time {
+    width: 250px;
+    font-size: 6rem;
+  }
+  .day {
+    font-size: 2rem;
+  }
+  .h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .weather {
+
+    right: 20px;
+  }
 }
 
 /* button */
