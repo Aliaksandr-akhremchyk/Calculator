@@ -4,18 +4,9 @@ function removeTransition(e) {
   }
 
 function playSound(e) {
-    let audio, key, dataKey;
-    if (e.type == "click") {
-        try {
-            e.target.attributes["data-key"].value;
-        } catch (err) {
-            return;
-        }
-        dataKey = e.target.attributes["data-key"].value;
-    } else dataKey = e.keyCode;
-        
-    audio = document.querySelector(`audio[data-key="${dataKey}"]`);
-    key = document.querySelector(`div[data-key="${dataKey}"]`);
+    const dataKey = (e.target.dataset.key) ? e.target.dataset.key : e.keyCode;
+    const audio = document.querySelector(`audio[data-key="${dataKey}"]`);
+    const key = document.querySelector(`div[data-key="${dataKey}"]`);
         
     if (!audio) return;
 
