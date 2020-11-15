@@ -39,6 +39,13 @@ const Keyboard = {
                 });
             });
         });
+        window.addEventListener('click', (e)=>{
+            if(this.elements.main.classList.contains("keyboard--hidden") ||
+            e.target.classList.contains("use-keyboard-input") ||
+            e.target.closest(".keyboard")) return;
+                console.log('Получилось закрыть правильно!!!');
+                this.close()
+        })
     },
 
     _createKeys() {
@@ -48,7 +55,7 @@ const Keyboard = {
             "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
             "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
             "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-            "space"
+            ,"space"
         ];
 
         // Creates HTML for an icon
