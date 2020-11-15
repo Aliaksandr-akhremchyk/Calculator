@@ -20,7 +20,7 @@
 
 .keyboard__key {
     height: 45px;
-    width: 6%;
+    width: 5%;
     max-width: 80px;
     margin: 3px;
     border-radius: 4px;
@@ -44,7 +44,7 @@
 }
 
 .keyboard__key--wide {
-    width: 12%;
+    width: 10%;
     max-width: 120px;
 }
 
