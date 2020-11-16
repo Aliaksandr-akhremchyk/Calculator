@@ -4,7 +4,7 @@ const moles = document.querySelectorAll('.mole');
 const startBtn = document.querySelector('.start');
 const resetBtn = document.querySelector('.reset');
 const overlay = document.querySelector('.overlay');
-const message = document.querySelector('.message');
+const message = document.querySelector('.message h2');
 const confirmBtn = document.querySelector('.confirm');
 const levelBoard = document.querySelector('.level');
 const bestScoreBoard = document.querySelector('.best_score');
@@ -126,14 +126,14 @@ function reset(){
 function showMessage() {
     message.textContent = `You have a new level №${levelBoard.textContent}`;
     overlay.removeEventListener('transitionend', setDisplayNone)
-    overlay.classList.remove('displaynone');
+    overlay.classList.remove('display-none');
     setTimeout(() => {
-        overlay.classList.remove('hidden');
+        overlay.classList.remove('opacity-null');
     }, 1);
 }
 
 function setDisplayNone() {
-    overlay.classList.add('displaynone')
+    overlay.classList.add('display-none')
 }
 
 moles.forEach(mole => mole.addEventListener('click', bonk));
@@ -141,7 +141,7 @@ moles.forEach(mole => mole.addEventListener('click', bonk));
 resetBtn.addEventListener('click', reset);
 
 confirmBtn.addEventListener('click', () => {
-    overlay.classList.add('hidden');
+    overlay.classList.add('opacity-null');
     overlay.addEventListener('transitionend', setDisplayNone);
 })
 
