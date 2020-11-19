@@ -40,7 +40,7 @@ function scrub(e) {
 }
 
 function goToFullScreen(e) {
-  if(e.clientX === 0) return;
+  if(e.clientX === 0) return;// What is it????
   console.log(e);
   if (document.fullscreenElement) {
     player.classList.remove('toFullScreen');
@@ -75,3 +75,17 @@ window.addEventListener('keydown', (e) => {
   if(e.code !== 'Space') return;
   togglePlay();
 }); 
+
+
+
+let to = 4000, ts = 0;
+
+addEventListener('mousemove', () => {
+  ts = Date.now();
+  player.classList.remove('cursorOnFullScreen');
+});
+
+setInterval(() => {
+  if (Date.now() - ts > to)
+  player.classList.add('cursorOnFullScreen');
+}, 1000)
