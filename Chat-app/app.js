@@ -12,20 +12,29 @@ server = app.listen("3000", () => console.log("Server is running..."));
 
 const io = require("socket.io")(server);
 
-io.on('connection', (socket) => {
-	console.log('New user connected')
+let userId = 0;
 
-	socket.username = "Anonymous"
+io.on('connection', (socket) => {
+    console.log('New user connected')
+
+    socket.username = "Anonymous"
+    socket.usernameId = ++userId;
+        
+    io.sockets.emit('greeting_message', {greeting : `Новый пользователь ${socket.usernameId} вступил в чат`, userId: socket.usernameId})
 
     socket.on('change_username', (data) => {
-        socket.username = data.username
+        socket.username = data.username;
     })
 
     socket.on('new_message', (data) => {
-        io.sockets.emit('add_mess', {message : data.message, username : socket.username, className:data.className});
+        io.sockets.emit('add_mess', {message : data.message, username : socket.username, className:data.className, userId: socket.usernameId});
     })
 
-    socket.on('typing', (data) => {
+    socket.on('typing', () => {
     	socket.broadcast.emit('typing', {username : socket.username})
+    })
+
+    socket.on('notTyping', () => {
+    	socket.emit('notTyping')
     })
 })
