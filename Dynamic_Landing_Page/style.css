@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+html {
+  font-size: 17px;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.02rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  text-align: center;
+  height: 100vh;
+  background-size: cover;
+  color: #000000;
+  text-shadow: 0px 0px 1rem white, 
+  0.1rem 0px 0.2rem white,
+  -0.1rem 0px 0.2rem white, 
+  0rem -0.1rem 0.2rem white,
+  0px 0.1rem 0.2rem white;
+  transition: 1s;
+}
+.div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transition: 1s;
+  z-index: -1;
+}
+.div:hover {
+  opacity: 0;
+  transition: 1s;
+}
+.time {
+  margin-top: 22vh;
+  font-size: 8rem;
+  font-kerning: none;
+  width: 480px;
+  text-align: start;
+}
+.day {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.h1 {
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+.quote{
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+button {
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 3px;
+  border: 1px solid black;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+  opacity: 1;
+}
+
+.buttonImg{
+  top: 20px;
+  left: 20px;
+}
+.buttonQ{
+ top: 20px;
+ left: 200px
+}
+.weather {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 20px;
+  right: 50px;
+}
+
+@media (max-width: 700px) {
+  html{
+    font-size: 13px;
+  }
+  .time {
+    width: 360px;
+  }
+  .buttonQ{
+    left: 170px
+   }
+}
+@media (max-width: 560px) {
+  .buttonQ{
+    top: 55px;
+    left: 20px
+   }
+}
+@media (max-width: 470px) {
+  html{
+    font-size: 11px;
+  }
+  .time {
+    width: 250px;
+    font-size: 6rem;
+  }
+  .day {
+    font-size: 2rem;
+  }
+  .h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .weather {
+
+    right: 20px;
+  }
+}
+
+/* button */
