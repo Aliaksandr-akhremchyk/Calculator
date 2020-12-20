@@ -1,0 +1,110 @@
+html, body {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+canvas {
+width: 800;
+height: 800;
+}
+.controls {
+    /* margin: auto; */
+    font-size: 1.4em;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    box-shadow: 0em 0.4em 10px rgba(122,122,122,0.3);
+}
+.controls > div {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+}
+#buttons{
+    flex-flow: row;
+    justify-items: center;
+    align-items: center;
+}
+input, label{
+    margin: 4px 8px;
+}
+#buttonClear{
+    background-image: url("img/Clear.png" );
+    background-size: cover;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+#buttonStop{
+    background-image: url("img/Stop.png" );
+    background-size: cover;
+    margin-left: 8px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+.stop{
+    animation: 1.1s blinker linear infinite;
+}
+.active{
+    user-select: none;
+}
+@keyframes blinker {
+    0% { opacity: 1.0;
+        transform:scale(1) }
+    50% { opacity: 0.7; 
+        transform:scale(1.2)}
+    100% { opacity: 1.0; 
+        transform:scale(1)}
+
+        
+}
+.checkbox{
+    transform:scale(1.5);
+    margin-bottom: 12px;
+}
+
+@media (max-width: 530px) {
+    #buttonClear, 
+    #buttonStop{
+        width: 70px;
+        height: 70px;
+        margin: 2px;
+    }
+    .controls {
+        font-size: 1.1em;
+    }
+    .checkbox{
+        transform:scale(1);
+    }
+    input, label{
+        margin: 2px 4px;
+    }
+    #size{
+        width: 130px;
+    }
+}
+
+@media (max-width: 415px) {
+    .controls {
+        font-size: 0.9em;
+    }
+    #buttonClear, 
+    #buttonStop{
+        width: 40px;
+        height: 40px;
+    }
+    #buttons{
+        flex-flow: column;
+    }
+    #size{
+        width: 100px;
+    }
+}
