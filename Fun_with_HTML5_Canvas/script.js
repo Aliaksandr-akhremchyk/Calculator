@@ -14,7 +14,6 @@ ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = size;
 ctx.strokeStyle = color;
-// ctx.globalCompositeOperation = 'multiply';
 
 let isDrawing = false;
 let lastX = 0;
