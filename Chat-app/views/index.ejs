@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Comfortaa"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <title>Chat App</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Чат</h1>
+    </header>
+
+    <section>
+      <div id="change_username" class="input-group mb-3">
+        <input id="username" type="text" class=" form-control" ria-label="Recipient's username" aria-describedby="basic-addon2"/>
+        <div class="input-group-append">
+          <button id="send_username" class="btn btn-outline-secondary" type="button">
+            Изменить имя пользователя
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="chatroom">
+      <section id="feedback"></section>
+    </section>
+
+    <section id="input_zone" class="input-group mb-3">
+      <input id="message" class=" form-control" type="text" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+      <div class="input-group-append">
+        <button id="send_message" class="btn btn-outline-secondary" type="button">
+          Отправить
+        </button>
+      </div>
+    </section>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>
